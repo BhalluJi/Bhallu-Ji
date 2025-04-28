@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website to App Converter</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 600px;
+        margin: auto;
+      }
+
+      .input-container {
+        margin-bottom: 20px;
+      }
+
+      .input-container input,
+      .input-container select {
+        padding: 10px;
+        width: 80%;
+        margin: 10px 0;
+      }
+
+      .generate-button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      .generate-button:hover {
+        background-color: #0056b3;
+      }
+
+      #output {
+        margin-top: 20px;
+      }
+
+      .apk-link {
+        color: #007bff;
+        text-decoration: none;
+        font-size: 16px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Website to Android App Converter</h1>
+      <!-- App Name -->
+      <div class="input-container">
+        <input type="text" id="appName" placeholder="Enter App Name" required>
+      </div>
+      <!-- App Icon -->
+      <div class="input-container">
+        <input type="file" id="appIcon" accept="image/*" required>
+      </div>
+      <!-- Website URL -->
+      <div class="input-container">
+        <input type="url" id="websiteUrl" placeholder="Enter Website URL" required>
+      </div>
+      <!-- Button to Generate APK -->
+      <button class="generate-button" onclick="generateApp()">Generate APK</button>
+      <!-- Output Section -->
+      <div id="output">
+        <p id="statusMessage"></p>
+        <a href="#" class="apk-link" id="apkLink" style="display:none;">Click here to download APK</a>
+      </div>
+    </div>
+    <script>
+      function generateApp() {
+        var appName = document.getElementById("appName").value;
+        var websiteUrl = document.getElementById("websiteUrl").value;
+        var appIcon = document.getElementById("appIcon").files[0];
+        if (!appName || !websiteUrl || !appIcon) {
+          alert("Please fill in all the fields.");
+          return;
+        }
+        document.getElementById("statusMessage").innerText = "Generating your Android app...";
+        // Simulate APK generation (since real APK generation requires backend support)
+        setTimeout(function() {
+          document.getElementById("statusMessage").innerText = "App generated successfully!";
+          document.getElementById("apkLink").style.display = "block";
+          document.getElementById("apkLink").href = "https://www.example.com/your-app.apk"; // Replace with actual APK download link
+        }, 2000); // Simulate processing time
+      }
+    </script>
+  </body>
+</html>
